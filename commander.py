@@ -1,3 +1,4 @@
+# Этот крутой парень необязателен, но он крутой.
 class help_menu():
     commands = []
     def AddCommand(self, command, desc):
