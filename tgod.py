@@ -1,4 +1,4 @@
-import random, telebot, json
+import random, telebot, json, os
 import requests as r
 import commander
 commander.help_menu().AddCommand(
@@ -21,7 +21,7 @@ while True:
         with open('static/quotes.json', 'r', encoding = 'utf-8') as f:
             quotes = json.load(f)
 
-        token = '1534528908:AAG_ZnQsboTbo17omsPtANdPFrGBOV85axQ'
+        token = os.environ.get('tgtoken')
         bot = telebot.TeleBot(token)
         @bot.message_handler(commands=['help'])
         def help_manager(msg):
