@@ -1,5 +1,4 @@
 import random, telebot, json, os
-import requests as r
 import commander
 commander.help_menu().AddCommand(
     '/quote', 'отправляет цитату волка'
