@@ -35,6 +35,18 @@ while True:
                             f"<b>Волчья цитата для тебя</b> \n<i>{quotes[random.randint(1, len(quotes)) - 1]}</i>",
                             parse_mode='html'
                             )
+            bot.send_message(
+                    msg.chat.id, "Нажмите на кнопку для получения новой волчьей цитаты: ",
+                    reply_markup = telebot.types.InlineKeyboardMarkup().add(
+                        telebot.types.InlineKeyboardButton(text = "Получить новую цитату", callback_data = 'yes')
+                    )
+                )
+        @bot.callback_query_handler(func = lambda call: True)
+        def answerCatcher(call):
+            bot.send_message(call.message.chat.id,
+                f"<b>Волчья цитата для тебя</b> \n<i>{quotes[random.randint(1, len(quotes)) - 1]}</i>",
+                parse_mode='html'
+                )
         @bot.message_handler(commands=['start'])
         def welcome(msg):
             bot.send_sticker(msg.chat.id, open('static/sticker.webp', 'rb'))
