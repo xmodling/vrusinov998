@@ -44,10 +44,7 @@ while True:
         @bot.callback_query_handler(func = lambda call: True)
         def answerCatcher(call):
             bot.delete_message(call.message.chat.id, call.message.message_id)
-            bot.send_message(call.message.chat.id,
-                f"<b>Волчья цитата для тебя</b> \n<i>{quotes[random.randint(1, len(quotes)) - 1]}</i>",
-                parse_mode='html'
-                )
+            quote_generator(call.message)
         @bot.message_handler(commands=['start'])
         def welcome(msg):
             bot.send_sticker(msg.chat.id, open('static/sticker.webp', 'rb'))
