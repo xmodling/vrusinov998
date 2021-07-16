@@ -48,7 +48,7 @@ while True:
         @bot.message_handler(commands=['start'])
         def welcome(msg):
             bot.send_sticker(msg.chat.id, open('static/sticker.webp', 'rb'))
-            bot.send_message(msg.chat.id, f'{msg.from_user.first_name }, cам дед сан')
+            bot.send_message(msg.chat.id, f'Привет, {msg.from_user.first_name }. Если ты пришёл за мудрыми волчьими цитатами, то введи /quote.')
         @bot.message_handler(content_types=['text'])
         def main(msg):
             bot.send_message(msg.chat.id, 
